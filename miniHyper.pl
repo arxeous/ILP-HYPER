@@ -1,4 +1,4 @@
-% This has a couple of problems right now that need to be addressed. Even then, this is only a smaller version of the full ILP technique. 
+% This has a couple of problems right now that need to be addressed. Even then, this is only a smaller version of the full ILP technique. Also needs a fully fleshed out knowledge base
 use_module(library(lists)).
 
 % prove (Goal,Hypo,Answer)
