@@ -148,7 +148,7 @@ depthFirst(Hypothesis, Hypothesis, CurrDepth) :-
 depthFirst(OriginalHypothesis, Hypothesis, CurrDepth) :-
     CurrDepth > 0,
     NewDepth is CurrDepth - 1,
-    refineHpy(OriginalHypothesis, NewHypothesis),
+    refineHyp(OriginalHypothesis, NewHypothesis),
     complete(NewHypothesis),
     depthFirst(NewHypothesis, Hypothesis, NewDepth).
 
@@ -179,7 +179,7 @@ consistent(Hypothesis) :-
         Answer \== no
     ).
 
-% refineHpy(A, B)
+% refineHyp(A, B)
 % A - Hypothesis
 % B - Refinement of B
 % This is the refinement function, which just chooses a random clause in our list to be refined. 
@@ -189,7 +189,7 @@ consistent(Hypothesis) :-
 % Then we put into NewHypothesis place holders NewClause*NewVariables.
 % We send in this random RandomClause*RandomVariables into refine for refinement. When its done Clause and Variables will be the refinements of these variables,
 % and Hypothesis will contain these new refinements. 
-refineHpy(OriginalHypothesis, NewHypothesis) :-
+refineHyp(OriginalHypothesis, NewHypothesis) :-
     append(OtherClauses, [RandomClause*RandomVariables | RemainingClauses], OriginalHypothesis),
     append(OtherClauses, [NewClause*NewVariables | RemainingClauses], NewHypothesis),
     refine(RandomClause, RandomVariables, NewClause, NewVariables).
