@@ -1,2 +1,2 @@
 # ILP-HYPER
-ILP implementation using HYPER in prolog.
+ILP implementation using mini-HYPER in prolog.
