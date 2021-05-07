@@ -1,6 +1,9 @@
-% This has a couple of problems right now that need to be addressed. Even then, this is only a smaller version of the full ILP technique. Also needs a fully fleshed out knowledge base
-%
+% Working version of mini-HYPER
+% Links to how to build this system along with other working sources used to build this can be found in the project report.
 
+% The version of prove used to build mini-HYPER in Bratkos example is finicky. This may be due to the many years since that code was written.
+% So instead we use a slightly different version of provided by University Of Birmingham. Usually prove is put in its own seperate file, but we include it here
+% in order to keep everything in own tightly knit package.
 % prove (A,B,C)\3
 % A - Goal to be proved using the hypothesis. The form of a goal is that of a list of literal and argument pairs.
 % B - Hypothesis that will prove the goal (try to prove.) The form of the hypothesis is that of a list of clauses
@@ -145,7 +148,7 @@ depthFirst(Hypothesis, Hypothesis, CurrDepth) :-
 depthFirst(OriginalHypothesis, Hypothesis, CurrDepth) :-
     CurrDepth > 0,
     NewDepth is CurrDepth - 1,
-    refine_hyp(OriginalHypothesis, NewHypothesis),
+    refineHpy(OriginalHypothesis, NewHypothesis),
     complete(NewHypothesis),
     depthFirst(NewHypothesis, Hypothesis, NewDepth).
 
@@ -176,7 +179,7 @@ consistent(Hypothesis) :-
         Answer \== no
     ).
 
-% refine_hpy(A, B)
+% refineHpy(A, B)
 % A - Hypothesis
 % B - Refinement of B
 % This is the refinement function, which just chooses a random clause in our list to be refined. 
@@ -186,7 +189,7 @@ consistent(Hypothesis) :-
 % Then we put into NewHypothesis place holders NewClause*NewVariables.
 % We send in this random RandomClause*RandomVariables into refine for refinement. When its done Clause and Variables will be the refinements of these variables,
 % and Hypothesis will contain these new refinements. 
-refine_hyp(OriginalHypothesis, NewHypothesis) :-
+refineHpy(OriginalHypothesis, NewHypothesis) :-
     append(OtherClauses, [RandomClause*RandomVariables | RemainingClauses], OriginalHypothesis),
     append(OtherClauses, [NewClause*NewVariables | RemainingClauses], NewHypothesis),
     refine(RandomClause, RandomVariables, NewClause, NewVariables).
