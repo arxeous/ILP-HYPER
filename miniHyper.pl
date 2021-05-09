@@ -144,7 +144,7 @@ depthFirst(Hypothesis, Hypothesis, CurrDepth) :-
 
 % 2
 % Search by refining the OriginalHypothesis into NewHypothesis. Check that its complete, and then refine it once more to check if its consistent.
-% Hypothesis is the variable in this program, so whatever consistent hypothesis turns up in function 1 will be put into NewHypothesis.			       
+% Hypothesis is the variable in this program, so whatever is in NewHypothesis gets matched with Hypothesis and sent to function 1 to check for consistency.		       
 depthFirst(OriginalHypothesis, Hypothesis, CurrDepth) :-
     CurrDepth > 0,
     NewDepth is CurrDepth - 1,
