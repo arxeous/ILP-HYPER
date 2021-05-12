@@ -226,5 +226,5 @@ refine(Clause, Variables, NewClause, NewVariables) :-
     append(Clause, [Literal], NewClause),
     append(Variables, VariablesOfLiteral, NewVariables).
 
-maxProofLength(6).
-maxClauseLength(3).
+maxProofLength(100).
+maxClauseLength(4).
