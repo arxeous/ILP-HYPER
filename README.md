@@ -1,5 +1,8 @@
 # ILP mini-HYPER
 An ILP implementation in prolog through the use of mini-HYPER for CS3520 Symbolic programming class.
+Arxeous - Aaron Gonzalez
+Moyenne - Ian Heffernan
+ana569 - Ana Barcenas
 # Installation 
 ## Install SWI-prolog
 Follow instructions of installation for your respective operating system:
