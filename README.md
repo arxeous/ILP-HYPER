@@ -22,7 +22,7 @@ File > Consult > Choose file > miniHYPER.pl
 ```
 ?- ['filename.pl'].
 ```
-3. Run the program to find the target hypothesis by using 
+4. Run the program to find the target hypothesis by using 
 ```
 ?- induce(H).
 ```
